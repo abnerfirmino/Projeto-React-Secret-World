@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Nunito', sans-serif;
+html, body {
   height: 100%;
 }
 
-#root {
+body {
+  font-family: 'Nunito', sans-serif;
+  background: no-repeat linear-gradient(to bottom, blue, rgb(1, 1, 68));
+  color: #fff;
+}
+
+#root .App{
   display: flex;
   flex-direction: column;
   align-items: center;
