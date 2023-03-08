@@ -1,10 +1,11 @@
 import './styles.css';
 
-const GamingScreen = () => {
+const GamingScreen = ({ verifyWord }) => {
 
   return (
-    <div>
-      I'm playing
+    <div className='gaming'>
+      <p>I'm playing</p>
+      <button onClick={verifyWord}>Finalizar o jogo</button>
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import './styles.css';
 
-const GameOverScreen = () => {
+const GameOverScreen = ({ restart}) => {
 
   return (
-    <div>
-      Game Over
+    <div className='end'>
+      <p>Game Over</p>
+      <button onClick={restart}>Jogar Denovo</button>
     </div>
   );
 }
