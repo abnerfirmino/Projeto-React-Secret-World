@@ -1,6 +1,6 @@
 import './styles.css';
 
-const GameOverScreen = ({ restart}) => {
+const GameOverScreen = ({ restart }) => {
 
   return (
     <div className='end'>
