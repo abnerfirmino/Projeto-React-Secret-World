@@ -5,7 +5,7 @@ const GameOverScreen = ({ restart}) => {
   return (
     <div className='end'>
       <p>Game Over</p>
-      <button onClick={restart}>Jogar Denovo</button>
+      <button onClick={restart}>Reiniciar o jogo</button>
     </div>
   );
 }
