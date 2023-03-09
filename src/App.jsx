@@ -39,8 +39,14 @@ function App() {
   // função que inicia o jogo
   const startGame = () => {
     const { category, word } = pickCategoryAndWord();
-    console.log(category, word);
+    
+    // dividindo a palavra sorteada em letras
+    let wordLetters = word.split("");
+    wordLetters = wordLetters.map((letter) => letter.toLowerCase());
 
+    setPickedCategory(category);
+    setPickedWord(word);
+    setLetters(wordLetters);
     setGameStage(stages[1].stage);
   }
 
