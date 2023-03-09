@@ -1,6 +1,6 @@
 import './styles.css';
 
-const GamingScreen = ({ verifyWord }) => {
+const GamingScreen = ({ verifyLetter }) => {
 
   return (
     <div className='gaming'>
