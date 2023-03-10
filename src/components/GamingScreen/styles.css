@@ -1,4 +1,5 @@
 .gaming {
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +7,8 @@
 }
 
 .gaming h2 {
-  font-size: 2.5em;
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
 }
 
 .points {
@@ -34,20 +36,22 @@
 }
 
 .wordContainer {
+  width: 80%;
   margin: 1.5em;
   padding: 1.5em;
-  border: 20px solid #ecfa00;
+  border: 1rem solid #ecfa00;
   display: flex;
   flex-direction: row;
+  justify-self: center;
 }
 
 .letter, 
 .blankSquare {
-  font-size: 70px;
+  font-size: 1.5em;
   line-height: 1.5;
   border: 3px solid #000;
-  height: 100px;
-  width: 100px;
+  height: 3rem;
+  width: 3rem;
   text-transform: uppercase;
   background-color: #fff;
   color: #000;
