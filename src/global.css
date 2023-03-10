@@ -6,7 +6,6 @@
 
 html, body {
   height: 100%;
-  width: 100%;
 }
 
 body {
@@ -18,5 +17,5 @@ body {
 #root .App{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
 }
