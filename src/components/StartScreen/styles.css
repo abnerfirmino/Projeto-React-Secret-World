@@ -11,7 +11,8 @@
 }
 
 .start p {
-  margin-bottom: 2em;
+  font-size: 1.3em;
+  margin-bottom: 1.5em;
   font-weight: bold;
   color: #ecfa00;
 }

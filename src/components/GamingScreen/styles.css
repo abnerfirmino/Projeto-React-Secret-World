@@ -9,8 +9,22 @@
   font-size: 2.5em;
 }
 
-.points span {
+.points {
+  margin-top: 1em;
+}
+
+.gaming p {
   font-weight: bold;
+}
+
+.gaming .guesses {
+  background-color: #ecfa00;
+  color: #0923af;
+  font-size: 1.2em;
+}
+
+.points span {
+  font-size: 1.3em;
   color: #ecfa00;
 }
 
@@ -59,6 +73,16 @@
   margin-right: 1em;
 }
 
+.wrongLettersContainer p {
+  font-weight: bold;
+}
+
+.wrongLettersContainer span {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ecfa00;
+}
+
 .gaming button {
   background-color: #1646a0;
   color: #fff;
@@ -71,6 +95,10 @@
   font-size: 1em;
   cursor: pointer;
   transition: 300ms ease-in-out;
+}
+
+.gaming .page-button {
+  margin-top: 1em;
 }
 
 .gaming button:hover {

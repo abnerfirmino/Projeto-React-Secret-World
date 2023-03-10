@@ -1,19 +1,32 @@
 import './styles.css';
 
-const GamingScreen = ({ verifyLetter }) => {
+const GamingScreen = ({ 
+  verifyLetter, 
+  pickedWord, 
+  pickedCategory, 
+  letters, 
+  guessedLetters,
+  wrongLetters,
+  guesses,
+  score 
+}) => {
 
   return (
     <div className='gaming'>
       <p className='points'>
-        <span>Pontuação: 000</span>
+        <span>Sua pontuação: {score}</span>
       </p>
       <h2>Adivinhe a palavra:</h2>
       <h3 className='tip'>
-        Dica sobre a palavra: <span>Dica...</span>
+        Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
+      <p>Você tem <span className='guesses'>{guesses}</span> tentativa(s).</p>
       <div className="wordContainer">
-        <span className="letter">A</span>
-        <span className="blankSquare"></span>
+        {letters.map((letter, i) => (
+          guessedLetters.includes(letter) ? 
+            <span key={i} className="letter">{letter}</span> : 
+            <span key={i} className="blankSquare"></span>
+        ))}
       </div>
       <div className="letterContainer">
         <p>Tente adivinhar uma letra da palavra:</p>
@@ -23,11 +36,12 @@ const GamingScreen = ({ verifyLetter }) => {
         </form>
       </div>
       <div className="wrongLettersContainer">
-        <p>Letras já utilizadas:</p>
-        <span>a, </span>
-        <span>b, </span>
+        <p>Letras que você já tentou:</p>
+        {wrongLetters.map((letter, i) => (
+          <span key={i}>{letter}, </span>
+        ))}
       </div>
-      <button onClick={verifyLetter}>Finalizar o jogo</button>
+      <button className='page-button' onClick={verifyLetter}>Finalizar o jogo</button>
     </div>
   );
 }
