@@ -5,15 +5,22 @@
   text-align: center;
 }
 
-.end h1 {
-  font-size: 3em;
-  margin: 0.3em 0;
+.end h2 {
+  font-size: 2rem;
+  margin: 0.7rem 0;
 }
 
-.end p {
-  margin-bottom: 2em;
+.end h3 {
+  margin-bottom: 1.5rem;
+}
+
+.end .score {
+  background-color: #ecfa00;
+  color: #0923af;
+  font-size: 1.2em;
   font-weight: bold;
-  color: #ecfa00;
+  padding: 0.2rem;
+  margin-bottom: 0.8rem;
 }
 
 .end button {

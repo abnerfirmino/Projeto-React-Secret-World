@@ -111,7 +111,7 @@ function App() {
           score={score}
           verifyLetter={verifyLetter}
         />}
-      {gameStage === "end" && <GameOverScreen restart={restartGame}/>}
+      {gameStage === "end" && <GameOverScreen restart={restartGame} score={score} />}
     </div>
   );
 }
