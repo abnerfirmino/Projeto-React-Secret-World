@@ -56,10 +56,24 @@ function App() {
   }
 
   // função que verifica as letras
-  const verifyLetter = () => {
-    setGameStage(stages[2].stage);
+  const verifyLetter = (userLetter) => {
+    const normalizedLetter = userLetter.toLowerCase();
+
+    // verifica se o usuário já tentou aquela letra
+    if (guessedLetters.includes(normalizedLetter) || wrongLetters.includes(normalizedLetter)) {
+      return;
+    }
+
+    // adicionando ou removendo as letras adivinhadas
+    if (letters.includes(normalizedLetter)) {
+      setGuessedLetters((guessed) => [...guessed, normalizedLetter]);
+    } else {
+      setWrongLetters((wrongs) => [...wrongs, normalizedLetter]);
+    }
   }
 
+  console.log(guessedLetters);
+  console.log(wrongLetters);
   // função que reiniciar o jogo
   const restartGame = () => {
     setGameStage(stages[0].stage);

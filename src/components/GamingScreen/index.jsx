@@ -16,6 +16,8 @@ const GamingScreen = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    verifyLetter(userLetter);
+    
     letterInput.current.focus();
     setUserLetter("");
   }
@@ -58,7 +60,6 @@ const GamingScreen = ({
           <span key={i}>{letter}, </span>
         ))}
       </div>
-      <button className='page-button' onClick={verifyLetter}>Finalizar o jogo</button>
     </div>
   );
 }
