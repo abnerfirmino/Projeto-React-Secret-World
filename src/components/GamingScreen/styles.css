@@ -26,6 +26,8 @@
   background-color: #ecfa00;
   color: #0923af;
   font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.2rem;
 }
 
 .points span {
