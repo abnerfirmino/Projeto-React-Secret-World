@@ -23,9 +23,8 @@
 }
 
 .gaming .guesses {
-  background-color: #ecfa00;
-  color: #0923af;
-  font-size: 1.2em;
+  color: #ecfa00;
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 0.2rem;
 }
@@ -37,7 +36,9 @@
 
 .tip span {
   font-weight: bold;
-  color: #ecfa00;
+  color: #0923af;
+  background-color: #ecfa00;
+  padding: 0.1rem;
 }
 
 .wordContainer {
