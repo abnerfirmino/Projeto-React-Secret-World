@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import './styles.css';
 
 const GamingScreen = ({ 
@@ -10,6 +11,14 @@ const GamingScreen = ({
   guesses,
   score 
 }) => {
+  const [userLetter, setUserLetter] = useState("");
+  const letterInput = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    letterInput.current.focus();
+    setUserLetter("");
+  }
 
   return (
     <div className='gaming'>
@@ -30,8 +39,16 @@ const GamingScreen = ({
       </div>
       <div className="letterContainer">
         <p>Tente adivinhar uma letra da palavra:</p>
-        <form>
-          <input type="text" name="letter" maxLength="1" required />
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            name="letter" 
+            maxLength="1" 
+            required 
+            onChange={(e) => setUserLetter(e.target.value)}
+            value={userLetter} 
+            ref={letterInput}
+            />
           <button>Inserir!</button>
         </form>
       </div>
