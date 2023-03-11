@@ -25,9 +25,9 @@ const GamingScreen = ({
   return (
     <div className='gaming'>
       <p className='points'>
-        <span>Sua pontuação: {score}</span>
+        Sua pontuação é: <span>{score}</span>
       </p>
-      <h2>Adivinhe a palavra:</h2>
+      <h2>Adivinhe a palavra!</h2>
       <h3 className='tip'>
         Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
