@@ -7,7 +7,7 @@
 
 .gaming h2 {
   font-size: 2rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.1rem;
 }
 
 .tip {
@@ -15,7 +15,16 @@
 }
 
 .points {
-  margin-top: 1em;
+  background-color: #ecfa00;
+  color: #0923af;
+  margin: 1em 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+}
+
+.points span {
+  color: #0923af;
 }
 
 .gaming p {
@@ -27,11 +36,6 @@
   font-size: 1.5rem;
   font-weight: bold;
   padding: 0.2rem;
-}
-
-.points span {
-  font-size: 1.3em;
-  color: #ecfa00;
 }
 
 .tip span {
