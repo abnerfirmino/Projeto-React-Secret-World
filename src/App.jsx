@@ -70,12 +70,30 @@ function App() {
     } else {
       setWrongLetters((wrongs) => [...wrongs, normalizedLetter]);
     }
+
+    setGuesses(guesses - 1);
   }
 
-  console.log(guessedLetters);
-  console.log(wrongLetters);
+  // limpa os estados das letters
+  const clearLetterStates = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  }
+
+  // monitoramento das tentativas (guesses)
+  useEffect(() => {
+    if (guesses <= 0) {
+      clearLetterStates();
+
+      setGameStage(stages[2].stage);
+    }
+  }, [guesses]);
+
   // função que reiniciar o jogo
   const restartGame = () => {
+    setGuesses(3);
+    setScore(0);
+
     setGameStage(stages[0].stage);
   }
 
