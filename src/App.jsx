@@ -14,7 +14,7 @@ const stages = [
   {id: 1, stage: "start"},
   {id: 2, stage: "gaming"},
   {id: 3, stage: "end"},
-]
+];
 
 function App() {
   // estados da APP
@@ -26,8 +26,11 @@ function App() {
 
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
-  const [guesses, setGuesses] = useState(3);
+
+  const [guesses, setGuesses] = useState(10);
   const [score, setScore] = useState(0);
+  // acertos
+  const [hits, setHits] = useState(0);
 
   // função para gerar categoria e palavra aleatória
   const pickCategoryAndWord = () => {
@@ -52,11 +55,20 @@ function App() {
     setPickedCategory(category);
     setPickedWord(word);
     setLetters(wordLetters);
+
+    //limpa as letras se existirem
+    clearLetterStates();
+
     setGameStage(stages[1].stage);
-  }
+  };
 
   // função que verifica as letras
   const verifyLetter = (userLetter) => {
+    let regex = /[a-záéíóúãõâêôçà]/i;
+    if (!regex.test(userLetter)) {
+      return;
+    }
+
     const normalizedLetter = userLetter.toLowerCase();
 
     // verifica se o usuário já tentou aquela letra
@@ -82,16 +94,31 @@ function App() {
 
   // monitoramento das tentativas (guesses)
   useEffect(() => {
-    if (guesses <= 0) {
+    if (guesses === 0) {
       clearLetterStates();
 
       setGameStage(stages[2].stage);
     }
   }, [guesses]);
 
+  // monitoramento da condição de vitória
+  const compareArrays = (a, b) => {
+    return a.toString() === b.toString();
+  }
+
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)];
+
+    if (compareArrays(uniqueLetters, guessedLetters)) {
+      startGame();
+      setScore(score + 10);
+      setHits(hits + 1);
+    }
+  }, [guessedLetters, letters, startGame]);
+
   // função que reiniciar o jogo
   const restartGame = () => {
-    setGuesses(3);
+    setGuesses(10);
     setScore(0);
 
     setGameStage(stages[0].stage);
@@ -111,7 +138,7 @@ function App() {
           score={score}
           verifyLetter={verifyLetter}
         />}
-      {gameStage === "end" && <GameOverScreen restart={restartGame} score={score} />}
+      {gameStage === "end" && <GameOverScreen restart={restartGame} score={score} hits={hits} />}
     </div>
   );
 }
