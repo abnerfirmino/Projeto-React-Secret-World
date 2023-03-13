@@ -6,16 +6,28 @@ const GamingScreen = ({
   pickedWord, 
   pickedCategory, 
   letters, 
-  guessedLetters,
-  wrongLetters,
-  guesses,
+  guessedLetters, 
+  wrongLetters, 
+  guesses, 
   score 
 }) => {
+  const [formError, setFormError] = useState("");
   const [userLetter, setUserLetter] = useState("");
   const letterInput = useRef(null);
 
+  // função para validar os dados do formulário
+  const validateForm = (letter) => {
+    let regex = /[a-záéíóúãõâêôçà]/i;
+
+    if (!regex.test(letter)) {
+      setFormError('ERRO! Digite somente letras.');
+    }
+  }
+
+  // função para tratar o submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    validateForm(userLetter);
     verifyLetter(userLetter);
     
     letterInput.current.focus();
@@ -52,6 +64,7 @@ const GamingScreen = ({
             ref={letterInput}
             />
           <button>Inserir!</button>
+          <span className='error'>{formError}</span>
         </form>
       </div>
       <div className="wrongLettersContainer">

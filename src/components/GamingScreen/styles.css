@@ -69,13 +69,19 @@
 }
 
 .letterContainer p {
-  margin-bottom: 1.2em;
+  margin-bottom: 0.2em;
+}
+
+.letterContainer .error {
+  color: red;
+  font-weight: 500;
 }
 
 .letterContainer form {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
   margin-bottom: 1em;
 }
 
@@ -84,7 +90,7 @@
   width: 50px;
   font-size: 2em;
   text-align: center;
-  margin-right: 1em;
+  margin: 0 auto 0.2em auto;
 }
 
 .wrongLettersContainer p {
