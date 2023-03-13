@@ -39,7 +39,8 @@ const GamingScreen = ({
       <p className='points'>
         Sua pontuação é: <span>{score}</span>
       </p>
-      <h2>Adivinhe a palavra!</h2>
+      <h2>Tente adivinhar!</h2>
+      <p className='description'>Para ganhar 10 pontos adivinhe uma palavra.</p>
       <h3 className='tip'>
         Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
@@ -52,7 +53,7 @@ const GamingScreen = ({
         ))}
       </div>
       <div className="letterContainer">
-        <p>Tente adivinhar uma letra da palavra:</p>
+        <p>Tente adivinhar uma letra:</p>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
