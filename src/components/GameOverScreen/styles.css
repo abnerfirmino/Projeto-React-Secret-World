@@ -10,17 +10,17 @@
   margin: 0.7rem 0;
 }
 
-.end h3 {
-  margin-bottom: 1.5rem;
-}
-
 .end .score {
   background-color: #ecfa00;
   color: #0923af;
   font-size: 1.2em;
   font-weight: bold;
   padding: 0.2rem;
-  margin-bottom: 0.8rem;
+}
+
+.end p {
+  margin: 0.8rem 0 0.5rem 0;
+  font-weight: bold;
 }
 
 .end button {
