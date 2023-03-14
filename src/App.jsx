@@ -33,7 +33,7 @@ function App() {
   const [hits, setHits] = useState(0);
 
   // função para gerar categoria e palavra aleatória
-  const pickCategoryAndWord = () => {
+  const pickCategoryAndWord = useCallback(() => {
     // sorteando uma categoria
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
@@ -42,10 +42,10 @@ function App() {
     const word = words[category][Math.floor(Math.random() * words[category].length)];
 
     return { category, word }
-  }
+  }, [words]);
 
   // função que inicia o jogo
-  const startGame = () => {
+  const startGame = useCallback(() => {
     const { category, word } = pickCategoryAndWord();
     
     // dividindo a palavra sorteada em letras
@@ -60,7 +60,7 @@ function App() {
     clearLetterStates();
 
     setGameStage(stages[1].stage);
-  };
+  }, [pickCategoryAndWord]);
 
   // função que verifica as letras
   const verifyLetter = (userLetter) => {
@@ -81,9 +81,8 @@ function App() {
       setGuessedLetters((guessed) => [...guessed, normalizedLetter]);
     } else {
       setWrongLetters((wrongs) => [...wrongs, normalizedLetter]);
+      setGuesses(guesses - 1);
     }
-
-    setGuesses(guesses - 1);
   }
 
   // limpa os estados das letters
@@ -94,7 +93,7 @@ function App() {
 
   // monitoramento das tentativas (guesses)
   useEffect(() => {
-    if (guesses === 0) {
+    if (guesses <= 0) {
       clearLetterStates();
 
       setGameStage(stages[2].stage);
@@ -103,11 +102,18 @@ function App() {
 
   // monitoramento da condição de vitória
   const compareArrays = (a, b) => {
-    return a.toString() === b.toString();
+    if(a.sort().toString() === b.sort().toString()) {
+      return true;
+    }
   }
 
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
+
+    // condição de bloqueio "umount do jogo"
+    if (uniqueLetters.length <= 0) {
+      return;
+    }
 
     if (compareArrays(uniqueLetters, guessedLetters)) {
       startGame();
